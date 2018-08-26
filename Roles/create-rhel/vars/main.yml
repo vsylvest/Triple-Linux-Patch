@@ -1,0 +1,8 @@
+    vm_count: 1
+    security_group: 'sg-0078806842675b812'
+    subnet_id: 'subnet-3e80d577'
+    ssh_key_name: 'etg-vinni'
+    instance_size: 't2.micro'
+    instance_tag: 'rhel'
+    ami_name: 'ami-67589505'
+    region: 'ap-southeast-2'  

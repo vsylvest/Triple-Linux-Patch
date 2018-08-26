@@ -1,0 +1,21 @@
+---
+- name: Patch RHEL
+  hosts:
+    tag_rhel
+  become: true
+  roles:
+    - patch-rhel
+
+- name: Patch Centos
+  hosts:
+    tag_centos
+  become: true
+  roles:
+    - patch-centos
+
+- name: Patch Ubuntu
+  hosts:
+    tag_ubuntu
+  become: true
+  roles:
+    - patch-ubuntu
