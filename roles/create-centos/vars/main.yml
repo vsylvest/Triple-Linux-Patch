@@ -4,5 +4,5 @@
     ssh_key_name: 'etg-vinni'
     instance_size: 't2.micro'
     instance_tag: 'centos'
-    ami_name: 'ami-05e4d066'
+    ami_name: 'ami-05511e3f'
     region: 'ap-southeast-2'  
