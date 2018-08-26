@@ -1,10 +1,8 @@
 ---
 - name: Create AWS Instances
   hosts: localhost
-  gather_facts: False
   roles:
   - { name: create-rhel }
-  - { name: create-centos }
 
 
     
