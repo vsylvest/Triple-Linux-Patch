@@ -5,6 +5,7 @@
   roles:
   - { name: create-rhel }
   - { name: create-centos }
+  - { name: create-ubuntu }
 
 
     
