@@ -1,4 +1,4 @@
-  - name: Create RHEL instance in ec2
+  - name: Create Ubuntu instance in ec2
     ec2:
       image: "{{ ami_name }}"
       instance_type: "{{ instance_size }}"
