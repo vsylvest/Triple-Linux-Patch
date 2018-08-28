@@ -5,6 +5,7 @@
     with_items:
     - openscap-scanner
     - scap-security-guide
+    - httpd
 
   - block:
     - name: run openscap
@@ -17,8 +18,12 @@
       ignore_errors: yes
 
     always:
-    - name: download report
-      fetch:
+    - name: Copy report for serving
+      copy:
         src: /tmp/oscap-report.html
-        dest: /var/tmp/reports/oscap-reports/{{ inventory_hostname }}.html
-        flat: yes
+        dest: /var/www/html/index.html
+
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
