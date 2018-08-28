@@ -1,4 +1,4 @@
-  - name: install openscap scanner
+  - name: install openscap scanner, ssg and httpd
     package:
       name: "{{ item }}"
       state: latest
