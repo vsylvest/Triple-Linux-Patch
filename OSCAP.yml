@@ -1,11 +1,19 @@
 ---
 - name: Running Compliance against RHEL
   hosts:
-    tag_Name_rhel
+    tag_Name_rhel1
   become: true
   roles:
     - oscap-rhel
 
+
+---
+- name: Running Compliance against RHEL
+  hosts:
+    tag_Name_rhel2
+  become: true
+  roles:
+    - oscap-rhel
 
 # - name: Running Compliance against Centos
 #   hosts:
