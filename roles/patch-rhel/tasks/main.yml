@@ -3,6 +3,11 @@
       ignore_errors: true
       register: app_process_check
 
+    - name: stop httpd
+      service:
+        name: httpd
+        state: stopped
+
     # this task is decision,play will fail/quit,if application is running
     - name:  decision point to start patching
       fail: msg="{{ inventory_hostname }} have running Application.Please stop the application first, then attempt patching."
