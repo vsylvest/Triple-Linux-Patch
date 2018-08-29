@@ -1,7 +1,7 @@
 ---
 - name: Patch RHEL
   hosts:
-    tag_rhel
+    tag_Name_rhel
   become: true
   roles:
     - patch-rhel
