@@ -5,9 +5,7 @@
   become: true
   roles:
     - oscap-rhel
-
-
----
+    
 - name: Running Compliance against RHEL
   hosts:
     tag_Name_rhel2
