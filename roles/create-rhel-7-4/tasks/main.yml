@@ -1,0 +1,48 @@
+  - name: Create RHEL instance in ec2
+    ec2:
+      image: "{{ ami_name }}"
+      instance_type: "{{ instance_size }}"
+      key_name: "{{ ssh_key_name }}"
+      region: "{{ region }}"
+      wait: true
+      count: "{{ vm_count|int }}"
+      instance_tags: "{'Name':'{{ instance_tag }}',  'group':'{{ security_group }}'}"
+      vpc_subnet_id: "{{ subnet_id }}"
+      assign_public_ip: yes
+      group_id: "{{ security_group }}"  
+    register: ec2r
+    tags: create
+
+  - name: Wait for SSH to come up
+    wait_for:
+      host: "{{ item.public_dns_name }}"
+      port: 22
+      delay: 60
+      timeout: 320
+      state: started
+    with_items: "{{ ec2r.instances }}"
+    tags: create
+
+  - name: Enumerate all tagged instances in ec2
+    ec2_instance_facts:
+      region: 'ap-southeast-2'
+      filters:
+        "tag:Name": "{{ instance_tag }}" 
+    register: vmfacts 
+    tags: 
+      - delete
+      - create
+
+  - debug: msg="{{ item.instance_id }}"
+    with_items: '{{ vmfacts.instances }}'
+    tags: 
+      - delete 
+      - create
+
+  - name: Delete ami instance in ec2
+    ec2:
+      region: 'ap-southeast-2'
+      state: absent
+      instance_ids: '{{ item.instance_id }}'
+    with_items: '{{ vmfacts.instances }}'
+    tags: delete 

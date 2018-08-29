@@ -3,7 +3,8 @@
   hosts: localhost
   gather_facts: False
   roles:
-  - { name: create-rhel }
+  - { name: create-rhel-7-4 }
+  - { name: create-rhel-7-5 }
   - { name: create-centos }
   - { name: create-ubuntu }
 
