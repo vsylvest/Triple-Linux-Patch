@@ -3,6 +3,6 @@
     subnet_id: 'subnet-3e80d577'
     ssh_key_name: 'ec2-key'
     instance_size: 't2.micro'
-    instance_tag: 'rhel'
+    instance_tag: 'rhel2'
     ami_name: 'ami-67589505'
     region: 'ap-southeast-2'  
