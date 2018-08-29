@@ -8,10 +8,6 @@
         name: httpd
         state: stopped
 
-    # this task is decision,play will fail/quit,if application is running
-    - name:  decision point to start patching
-      fail: msg="{{ inventory_hostname }} have running Application.Please stop the application first, then attempt patching."
-      when: app_process_check.stdout == "process_running"
 
     # this task will upgrade/install the rpm's if application is stopped
     - name:  upgrade all packages on the server
