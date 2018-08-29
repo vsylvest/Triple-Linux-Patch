@@ -6,6 +6,7 @@
   roles:
     - oscap-rhel
 
+
 # - name: Running Compliance against Centos
 #   hosts:
 #     tag_Name_centos
